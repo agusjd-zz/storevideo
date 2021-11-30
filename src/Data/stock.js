@@ -5,7 +5,9 @@ export const stock = [
       nombre: "Producto1",
       precio: 200,
       img: "https://via.placeholder.com/200",
+      stock: 10,
       descripcion: "lorem ipsums"
+   
   
       
     },
@@ -14,6 +16,7 @@ export const stock = [
       nombre: "Producto2",
       precio: 200,
       img: "https://via.placeholder.com/200",
+      stock:20,
       descripcion: "lorem ipsums"
   
       
@@ -23,6 +26,7 @@ export const stock = [
       nombre: "Producto3",
       precio: 200,
       img: "https://via.placeholder.com/200",
+      stock: 15,
       descripcion: "lorem ipsums"
   
       

@@ -1,21 +1,13 @@
 import React,{useEffect,useState} from 'react'
-import { stock } from '../../data/stock'
+import { pedirDatos } from '../../Helpers/pedirDatos'
+import ItemList from '../ItemList/ItemList'
 
-
-export const ItemListContainer = ({greeting}) => {
+export const ItemListContainer = () => {
     const [items,setItems]  = useState([])
-    console.log(items)
+    const [loading,setLoading] = useState(false) 
 
-
-    const pedirDatos = () =>{
-      return new Promise((resolve,reject)=>{
-         setTimeout(()=>{
-           resolve(stock)
-         },2000)
-      })
-    }
-    
     useEffect(() => {
+      setLoading(true)
       pedirDatos()
         .then( (resp)=>{
           setItems(resp)
@@ -25,13 +17,19 @@ export const ItemListContainer = ({greeting}) => {
           console.log(err)
         })
         .finally(()=>{
+          setLoading(false)
           console.log("Promesa Finalizada")
         })
     }, [])
   
     return (
-        <div>
-          {greeting}
+        <div className="mt-4" >
+
+          {
+            loading ? <h2>Cargando...</h2> : <ItemList items ={items} />
+          }
+          
+   
         </div>
     )
 }
