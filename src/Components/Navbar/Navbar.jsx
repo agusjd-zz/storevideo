@@ -2,7 +2,8 @@ import Navbar from 'react-bootstrap/Navbar'
 import { Container } from 'react-bootstrap'
 import { Nav} from 'react-bootstrap'
 import {CartWidget} from '../CartWidget/CartWidget'
-import {NavLink} from 'react-router-dom'
+import {Link} from 'react-router-dom'
+import './Navbar.scss'
 
 
 export const NavBar = () =>{
@@ -11,20 +12,22 @@ export const NavBar = () =>{
 
   <Navbar bg="primary" expand="lg">
     <Container>
-      <NavLink to="/"> 
-      <Navbar.Brand href="/">StoreVideo</Navbar.Brand>
-      </NavLink> 
+
+      <Navbar.Brand> <Link to="/"> StoreVideo </Link></Navbar.Brand>
+    
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
-        <NavLink to="/">
-          <Nav.Link href="/">Home</Nav.Link>
-        </NavLink> 
-        <NavLink to="/detail">
-          <Nav.Link href="/detail">Store</Nav.Link>
-          </NavLink> 
+       
+          <Nav.Link > <Link to="/"> Home </Link></Nav.Link>
+        
+       
+          <Nav.Link> <Link to="/detail">Store </Link></Nav.Link>
+          <Nav.Link> <Link to="/category/remeras">Remeras </Link></Nav.Link>
+          <Nav.Link> <Link to="/category/zapatillas">Zapatillas </Link></Nav.Link>
         </Nav>
-        <CartWidget/>
+
+        <Link to = "/cart"><CartWidget/></Link>
       </Navbar.Collapse>
       
     </Container>

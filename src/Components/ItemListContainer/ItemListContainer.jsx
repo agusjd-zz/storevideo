@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react'
+import { useParams } from 'react-router'
 import { pedirDatos } from '../../Helpers/pedirDatos'
 import ItemList from '../ItemList/ItemList'
 
@@ -6,11 +7,19 @@ export const ItemListContainer = () => {
     const [items,setItems]  = useState([])
     const [loading,setLoading] = useState(false) 
 
+    const {categoryId} = useParams()
+    console.log(categoryId)
+
     useEffect(() => {
       setLoading(true)
       pedirDatos()
         .then( (resp)=>{
-          setItems(resp)
+          if(categoryId) {
+              setItems(resp.filter((el)=>el.category === categoryId))
+          }else{
+            setItems(resp)
+          }
+
 
         })
         .catch((err)=>{
@@ -20,7 +29,7 @@ export const ItemListContainer = () => {
           setLoading(false)
           console.log("Promesa Finalizada")
         })
-    }, [])
+    }, [categoryId])
   
     return (
         <div className="mt-4 container"  >

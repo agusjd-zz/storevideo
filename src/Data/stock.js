@@ -6,7 +6,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock: 10,
-      descripcion: "lorem ipsums"
+      descripcion: "lorem ipsums",
+      category : "remeras"
    
   
       
@@ -17,8 +18,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock:20,
-      descripcion: "lorem ipsums"
-  
+      descripcion: "lorem ipsums",
+      category : "remeras"
       
     },
     {
@@ -27,7 +28,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock: 15,
-      descripcion: "lorem ipsums"
+      descripcion: "lorem ipsums",
+      category : "remeras"
   
       
     },
@@ -37,7 +39,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock: 15,
-      descripcion: "lorem ipsums"
+      descripcion: "lorem ipsums",
+      category : "remeras"
   
       
     },
@@ -47,7 +50,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock: 15,
-      descripcion: "lorem ipsums"
+      descripcion: "lorem ipsums",
+      category : "zapatillas"
   
       
     },
@@ -57,7 +61,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock: 15,
-      descripcion: "lorem ipsums"
+      descripcion: "lorem ipsums",
+      category : "zapatillas"
   
       
     },
@@ -67,7 +72,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock: 15,
-      descripcion: "lorem ipsums"
+      descripcion: "lorem ipsums",
+      category : "zapatillas"
   
       
     },
@@ -77,7 +83,8 @@ export const stock = [
       precio: 200,
       img: "https://via.placeholder.com/200",
       stock: 15,
-      descripcion: "lorem ipsums"
+      descripcion: "lorem ipsums", 
+      category : "zapatillas"
   
       
     },
