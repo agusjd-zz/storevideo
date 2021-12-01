@@ -23,7 +23,7 @@ export const ItemListContainer = () => {
     }, [])
   
     return (
-        <div className="mt-4" >
+        <div className="mt-4 container"  >
 
           {
             loading ? <h2>Cargando...</h2> : <ItemList items ={items} />
