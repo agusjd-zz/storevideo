@@ -32,7 +32,7 @@ export const ItemListContainer = () => {
     }, [categoryId])
   
     return (
-        <div className="mt-4 container"  >
+        <div className="mt-4 container d-flex"  >
 
           {
             loading ? <h2>Cargando...</h2> : <ItemList items ={items} />

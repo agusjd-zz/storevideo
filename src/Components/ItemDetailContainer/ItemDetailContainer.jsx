@@ -23,7 +23,7 @@ export const ItemDetailContainer = () => {
     },[itemId])
 
     return (
-        <div>
+        <div className="container text-center">
             <h2> Item Detail Container </h2>
             {loading 
             ? <h2>Cargando</h2>

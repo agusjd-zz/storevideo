@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 
 
 export const Item = ({item}) => {
+    
     return (
         
-        <Card style={{ width: '18rem' }} className="m">
+        <Card style={{ width: '18rem' }} className="mt-5 mr-5">
             <Card.Img variant="top" src={item.img} />
             <Card.Body>
                 <Card.Title>{item.nombre}</Card.Title>
@@ -15,7 +16,7 @@ export const Item = ({item}) => {
                 {item.precio}
                 </Card.Text>
                
-               <Link to= {`/detail/${item.id}`} > <Button variant="primary">Ver mas</Button></Link>
+               <Link to= {`/detail/${item.id}`} > <Button variant="primary" >Ver mas</Button></Link>
             
             </Card.Body>
         </Card>            
