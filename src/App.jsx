@@ -4,12 +4,18 @@ import { ItemListContainer} from "./Components/ItemListContainer/ItemListContain
 import ItemDetailContainer from "./Components/ItemDetailContainer/ItemDetailContainer";
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom'
 import CartView from "./Components/CartView/CartView";
+import { CartProvider } from "./Context/CartContext";
+
 
 
 
 function App() {
+
+
   return (
-  <BrowserRouter>
+
+    <CartProvider>
+    <BrowserRouter>
       <NavBar />
       <Routes>
         <Route path ="/" element={<ItemListContainer />} />
@@ -17,12 +23,12 @@ function App() {
         <Route path="/category/:categoryId" element = {<ItemListContainer/>}/>
         <Route path="/cart" element={<CartView/>}  />
         <Route path="*" element={<Navigate to= "/"/>}/>
-      </Routes>
-      
-      
-      
+      </Routes>      
 
   </BrowserRouter>
+  </CartProvider>
+
+
   );
 }
 
