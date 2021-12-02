@@ -15,12 +15,17 @@ export const CartProvider = ({children} ) =>{
       return cart.some((el)=> el.id === id)
     }
 
+    const totalCant = () =>{
+        return cart.reduce((acc,el)=> acc + el.cantidad,0)
+    }
+
     return(
         <CartContext.Provider
         value ={{
             cart,
             addToCart,
-            isInCart
+            isInCart,
+            totalCant
           }}>
               {children}
 
