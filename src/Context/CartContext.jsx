@@ -9,8 +9,10 @@ export const CartProvider = ({children} ) =>{
     const addToCart = (item) =>{
        setCart([...cart,item])
     }
-    console.log(cart)
-  
+    const removeFromCart = (id) =>{
+        setCart(cart.filter((el)=> el.id !== id))
+    }
+   
     const isInCart = (id) =>{
       return cart.some((el)=> el.id === id)
     }
@@ -19,13 +21,24 @@ export const CartProvider = ({children} ) =>{
         return cart.reduce((acc,el)=> acc + el.cantidad,0)
     }
 
+    const cleanCart = () =>{
+        setCart([])
+    }
+
+    const totalCompra = () =>{
+        return cart.reduce((acc,el)=> acc + el.cantidad * el.precio, 0)
+    }
+
     return(
         <CartContext.Provider
         value ={{
             cart,
             addToCart,
             isInCart,
-            totalCant
+            totalCant,
+            cleanCart,
+            totalCompra,
+            removeFromCart
           }}>
               {children}
 

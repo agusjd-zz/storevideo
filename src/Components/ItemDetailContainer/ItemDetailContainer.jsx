@@ -1,8 +1,8 @@
 import React, { useEffect,useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
-import {pedirItem} from '../../Helpers/pedirItem'
 import { useParams } from 'react-router'
-
+import {collection,getDoc,doc} from 'firebase/firestore/lite'
+import { db } from '../../Firebase/Config'
 
 export const ItemDetailContainer = () => {
     const [item,setItem] = useState(0)
@@ -13,9 +13,19 @@ export const ItemDetailContainer = () => {
 
 
     useEffect(()=>{
-        setLoading(true)
-        pedirItem(Number(itemId))
-        .then(resp => setItem(resp))
+      setLoading(true)
+      const productosRef = collection(db,'productos')
+      const docRef = doc(productosRef, itemId)
+      
+      getDoc(docRef)
+        .then((doc)=>{
+            setItem(
+                {
+                    id:doc.id,
+                    ...doc.data()
+                }
+            )
+        })
         .finally(()=>{
             setLoading(false)
         })

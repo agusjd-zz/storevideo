@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import { useParams } from 'react-router'
-import { pedirDatos } from '../../Helpers/pedirDatos'
+import { db } from '../../Firebase/Config'
+import {collection,getDocs,query,where} from 'firebase/firestore/lite'
 import ItemList from '../ItemList/ItemList'
 
 export const ItemListContainer = () => {
@@ -8,27 +9,32 @@ export const ItemListContainer = () => {
     const [loading,setLoading] = useState(false) 
 
     const {categoryId} = useParams()
-    console.log(categoryId)
+    
 
     useEffect(() => {
       setLoading(true)
-      pedirDatos()
-        .then( (resp)=>{
-          if(categoryId) {
-              setItems(resp.filter((el)=>el.category === categoryId))
-          }else{
-            setItems(resp)
-          }
 
+      const productosRef = collection(db,'productos')
 
-        })
-        .catch((err)=>{
-          console.log(err)
+      const q = categoryId ? query(productosRef,where('category','==',categoryId)) : productosRef
+
+      getDocs(q)
+        .then(resp =>{
+          const productos = resp.docs.map((doc)=> {
+            return{
+              id:doc.id,
+              ...doc.data()
+            }
+          })
+          console.log(productos)
+
+          setItems(productos)
+        
         })
         .finally(()=>{
           setLoading(false)
-          console.log("Promesa Finalizada")
         })
+
     }, [categoryId])
   
     return (
