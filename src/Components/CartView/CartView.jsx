@@ -39,7 +39,7 @@ const CartView = () => {
             <hr/>
             <h4>Total: $ {totalCompra()} </h4>
             <Button variant="danger" onClick={cleanCart}>Vaciar</Button>
-            <Button value="primary" >Terminar Compra</Button>
+            <Button value="primary" > <Link to="/checkout">Terminar Compra</Link></Button>
                 </>
             }
                 
